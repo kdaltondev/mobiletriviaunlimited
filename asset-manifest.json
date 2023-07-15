@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mobiletriviaunlimited/static/css/main.1567fa02.css",
+    "main.js": "/mobiletriviaunlimited/static/js/main.41c03095.js",
+    "index.html": "/mobiletriviaunlimited/index.html",
+    "main.1567fa02.css.map": "/mobiletriviaunlimited/static/css/main.1567fa02.css.map",
+    "main.41c03095.js.map": "/mobiletriviaunlimited/static/js/main.41c03095.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1567fa02.css",
+    "static/js/main.41c03095.js"
+  ]
+}
