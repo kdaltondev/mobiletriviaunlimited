@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Image, Button, Modal, Jumbotron} from 'react-bootstrap'
+import background from './img/quiz-app-bckgrnd.svg'
 
 
 export default function QuestionList ({resetGame, staticData, isSelected, setIsSelected, showAnswers, setShowAnswers}){
@@ -75,21 +76,20 @@ function selectAnswer(e, i,questionIndex){
     
     return(
         <>
-<div id="modal-div">
-    <Modal size="lg" show={showModal} onHide={()=>setModal(false)}>
-<Modal.Header closeButton>
+    <Modal class="has-bg-img"size="lg" show={showModal} onHide={()=>setModal(false)}>
+        
+<Modal.Header>
     <Modal.Title>
         <h1 className="modal-heading">Travel Trivia Unlimited</h1>
     </Modal.Title>
     </Modal.Header>
-<Modal.Body>
-           {/*} <h1 className="modal-heading"></h1>*/}
-            </Modal.Body>
+
             <div className="modal-btn-div">
-            <Button className="modal-btn" variant="danger" onClick={()=>setModal(false)}>Start Quiz</Button>
+              <Button className="modal-btn" variant="danger" onClick={()=>setModal(false)}>Start Quiz</Button>
 </div>
+
 </Modal>
-</div>
+
         
         {!showModal && <div className="questions-list">
         {questionListArray}
