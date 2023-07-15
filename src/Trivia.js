@@ -16,6 +16,8 @@ export default function Trivia() {
 
 const [dynamicData, setDynamicData] = useState([])
 const [playAgain, setPlayAgain]=useState([false])
+const [showAnswers, setShowAnswers] = useState(false)
+const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)))
 
   useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=5&type=multiple")
@@ -35,12 +37,14 @@ const [playAgain, setPlayAgain]=useState([false])
 
   function resetGame(){
     setPlayAgain(!playAgain)
+    setIsSelected(Array(5).fill(Array(4).fill(false)))
+    setShowAnswers(false)
    }
 
   
     return (
         <>
-        <QuestionList staticData={dynamicData} resetGame={resetGame}/>
+        <QuestionList staticData={dynamicData} resetGame={resetGame} isSelected={isSelected} setIsSelected={setIsSelected} showAnswers={showAnswers} setShowAnswers={setShowAnswers}/>
         </>
     )
 }   

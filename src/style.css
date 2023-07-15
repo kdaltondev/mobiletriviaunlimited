@@ -2,7 +2,7 @@
     box-sizing:border-box;
 }
 body {
-    
+    color:black;
  }
  .selected{
     background-color:lightblue;
@@ -12,7 +12,7 @@ body {
     font-weight:bold;
 }
 .incorrect-selected-answer{
-   background-color:red;
+   background-color:pink;
    font-weight:100;
    color:lightgray;
 }
@@ -40,4 +40,20 @@ li{
 }
 .me{
     font-weight:bold;
+}
+
+.modal-heading{
+    text-align:center;
+}
+.modal-btn-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom:40px;
+}
+.modal-btn{
+    background-color:lightblue;
+    padding:5px 10px;
+    margin:0 20px;
+    border-radius:20px;
 }
