@@ -1,0 +1,43 @@
+*{
+    box-sizing:border-box;
+}
+body {
+    
+ }
+ .selected{
+    background-color:lightblue;
+}
+.correct-answer{
+    background-color:lightgreen;
+    font-weight:bold;
+}
+.incorrect-selected-answer{
+   background-color:red;
+   font-weight:100;
+   color:lightgray;
+}
+.incorrect-answer{
+    color:lightgray;
+}
+ul{
+    display:flex;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+li{
+    margin:0 50px 0 10px;
+    border:2px solid black;
+    padding:5px 10px;
+    border-radius:10px;
+}
+
+.checkAnswers{
+    margin:30px auto;
+}
+.help{
+    color:blue;
+}
+.me{
+    font-weight:bold;
+}
