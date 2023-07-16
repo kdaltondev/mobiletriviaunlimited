@@ -56,7 +56,7 @@ ul{
 li{
     min-width:100px;
     margin:0 10px 20px 0;
-    border:2px solid black;
+    border:1px solid #4D5B9E;
     padding:5px 10px;
     border-radius:10px;
 }
@@ -129,5 +129,14 @@ li{
 @media screen and (min-width:768px){
     html{
         font-size:12px;
+    }
+    .question{
+        min-width:80%;
+    }
+    ul{
+        min-width:80%;
+    }
+    li{
+        min-width:15%;
     }
 }
