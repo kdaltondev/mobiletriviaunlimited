@@ -18,6 +18,7 @@ const [dynamicData, setDynamicData] = useState([])
 const [playAgain, setPlayAgain]=useState([false])
 const [showAnswers, setShowAnswers] = useState(false)
 const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)))
+const [roundNumber, setRoundNumber]=useState(0)
 
   useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=5&type=multiple")
@@ -39,12 +40,15 @@ const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)))
     setPlayAgain(!playAgain)
     setIsSelected(Array(5).fill(Array(4).fill(false)))
     setShowAnswers(false)
+    const newRoundNumber=roundNumber+1
+    setRoundNumber(newRoundNumber)
+    console.log(roundNumber)
    }
 
   
     return (
         <>
-        <QuestionList staticData={dynamicData} resetGame={resetGame} isSelected={isSelected} setIsSelected={setIsSelected} showAnswers={showAnswers} setShowAnswers={setShowAnswers}/>
+        <QuestionList roundNumber={roundNumber} staticData={dynamicData} resetGame={resetGame} isSelected={isSelected} setIsSelected={setIsSelected} showAnswers={showAnswers} setShowAnswers={setShowAnswers}/>
         </>
     )
 }   
