@@ -13,15 +13,21 @@ function shuffleArray(array) {
 
 
 export default function Trivia() {
+  
+  
+  var questionAmount = 5
+  var questionCategory = 21
+  var questionDifficulty = "easy"
+  var questionType = "multiple"
 
-const [dynamicData, setDynamicData] = useState([])
+  const [dynamicData, setDynamicData] = useState([])
 const [playAgain, setPlayAgain]=useState([false])
 const [showAnswers, setShowAnswers] = useState(false)
-const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)))
+const [isSelected, setIsSelected]=useState(Array(questionAmount).fill(Array(4).fill(false)))
 const [roundNumber, setRoundNumber]=useState(0)
 
   useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=5&type=multiple")
+    fetch(`https://opentdb.com/api.php?amount=${questionAmount}&type=${questionType}&difficulty=${questionDifficulty}`)
       .then(response => response.json())
       .then(data => {
         // Map the fetched data to the desired format and randomize the answers
