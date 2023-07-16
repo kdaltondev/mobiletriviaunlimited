@@ -54,7 +54,7 @@ ul{
     padding:0;
 }
 li{
-    max-width:100px;
+    min-width:100px;
     margin:0 10px 20px 0;
     border:2px solid black;
     padding:5px 10px;
@@ -98,14 +98,17 @@ li{
     margin:0 auto;
 }
 
-.checkAnswers{
+.checkAnswers,
+.playAgain{
     margin:0 10px 0 0;
     background-color:#4D5B9E;
     color:#F5F7FB;
     border-radius:10px;
     padding:10px 20px;
 }
-
+.modal-box{
+    border:none;
+}
 
 .modal-heading{
     text-align:center;
@@ -121,4 +124,10 @@ li{
     padding:5px 10px;
     margin:0 20px;
     border-radius:20px;
+}
+
+@media screen and (min-width:768px){
+    html{
+        font-size:12px;
+    }
 }

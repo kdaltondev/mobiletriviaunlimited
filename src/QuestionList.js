@@ -77,11 +77,11 @@ function selectAnswer(e, i,questionIndex){
     
     return(
         <>
-    <Modal size="lg" show={showModal} onHide={()=>setModal(false)}>
+    <Modal show={showModal} onHide={()=>setModal(false)}>
         
 <Modal.Header>
     <Modal.Title>
-        <h1 className="modal-heading">Travel Trivia Unlimited</h1>
+        <h1 as="modal-heading">Mobile Trivia Unlimited</h1>
     </Modal.Title>
     </Modal.Header>
 
