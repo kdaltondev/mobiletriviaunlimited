@@ -14,20 +14,29 @@ function shuffleArray(array) {
 
 export default function Trivia() {
   
-  
-  var questionAmount = 5
+  const [numberQuestions, setNumberQuestions]=useState(1)
+  /*const [questionDifficulty, setQuestionDifficulty]=useState(undefined)*/
+ 
   var questionCategory = 21
-  var questionDifficulty = "easy"
   var questionType = "multiple"
-
-  const [dynamicData, setDynamicData] = useState([])
+  /*var questionDifficulty="easy"*/
+  const [questionDifficulty, setQuestionDifficulty]=useState("")
+  const [questionNumber, setQuestionNumber]=useState(0)
+const [dynamicData, setDynamicData] = useState([])
 const [playAgain, setPlayAgain]=useState([false])
 const [showAnswers, setShowAnswers] = useState(false)
-const [isSelected, setIsSelected]=useState(Array(questionAmount).fill(Array(4).fill(false)))
+const [isSelected, setIsSelected]=useState(Array(questionNumber).fill(Array(4).fill(false)))
 const [roundNumber, setRoundNumber]=useState(0)
+const [showModal, setModal]=useState(true) 
+
+
+
+
 
   useEffect(() => {
-    fetch(`https://opentdb.com/api.php?amount=${questionAmount}&type=${questionType}&difficulty=${questionDifficulty}`)
+  if(questionNumber>0 && questionDifficulty!=""){
+    console.log(`I am fetching ${questionNumber} questions`)
+    fetch(`https://opentdb.com/api.php?amount=${questionNumber}&type=${questionType}&difficulty=${questionDifficulty}`)
       .then(response => response.json())
       .then(data => {
         // Map the fetched data to the desired format and randomize the answers
@@ -38,23 +47,46 @@ const [roundNumber, setRoundNumber]=useState(0)
           correctAnswer: item.correct_answer
         }));
         setDynamicData(formattedData);
+        console.log(showModal)
+        console.log(`I fetched ${questionDifficulty} questions`)
       })
       .catch(error => console.log(error));
-  }, [playAgain]);
+}else{
+  console.log("Waiting for question number")
+}}, [questionNumber, questionDifficulty, playAgain]);
 
   function resetGame(){
     setPlayAgain(!playAgain)
     setIsSelected(Array(5).fill(Array(4).fill(false)))
     setShowAnswers(false)
-    const newRoundNumber=roundNumber+1
+    var newRoundNumber=roundNumber+1
     setRoundNumber(newRoundNumber)
     console.log(roundNumber)
+    if(showModal){
+      setModal(false)
+    }
+    console.log(showModal);
+   }
+
+   function chooseDifficulty(e){
+   var newQuestionDifficulty=e.target.value
+   console.log(`You want ${newQuestionDifficulty} questions`)
+   setQuestionDifficulty(newQuestionDifficulty)
+  
+    console.log(`The question difficulty is ${questionDifficulty}`)
+   }
+
+   function chooseNumberQuestions(e){
+var newQuestionNumber=Number(e.target.value)
+console.log(`You want ${newQuestionNumber} questions`)
+setQuestionNumber(newQuestionNumber)
+  
    }
 
   
     return (
         <>
-        <QuestionList roundNumber={roundNumber} staticData={dynamicData} resetGame={resetGame} isSelected={isSelected} setIsSelected={setIsSelected} showAnswers={showAnswers} setShowAnswers={setShowAnswers}/>
+        <QuestionList chooseNumberQuestions={chooseNumberQuestions} showModal={showModal} chooseDifficulty={chooseDifficulty} roundNumber={roundNumber} staticData={dynamicData} resetGame={resetGame} isSelected={isSelected} setIsSelected={setIsSelected} showAnswers={showAnswers} setShowAnswers={setShowAnswers}/>
         </>
     )
 }   

@@ -3,11 +3,12 @@ import {Image, Button, Modal, Jumbotron} from 'react-bootstrap'
 import background from './img/quiz-app-bckgrnd.svg'
 
 
-export default function QuestionList ({roundNumber, resetGame, staticData, isSelected, setIsSelected, showAnswers, setShowAnswers}){
+export default function QuestionList ({chooseNumberQuestions,showModal, chooseDifficulty, roundNumber, resetGame, staticData, isSelected, setIsSelected, showAnswers, setShowAnswers}){
     console.log(staticData)
 {/*const [showAnswers, setShowAnswers] = useState(false)
 const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)));*/}
-const [showModal, setModal]=useState(true)  
+ 
+
 
 
 
@@ -50,7 +51,6 @@ function selectAnswer(e, i,questionIndex){
        console.log(isSelected)
    }     
 
-      
    const questionListArray = staticData.map((question,index)=>{
        const questionIndex=index
        console.log(`The question index is ${index}`)
@@ -77,16 +77,33 @@ function selectAnswer(e, i,questionIndex){
     
     return(
         <>
-    <Modal show={showModal} onHide={()=>setModal(false)}>
+    <Modal show={showModal} /*onHide={()=>setModal(false)}*/>
         
 <Modal.Header>
     <Modal.Title>
         <h1 as="modal-heading">Mobile Trivia Unlimited</h1>
     </Modal.Title>
     </Modal.Header>
+    <label for="difficulty">Choose difficulty level:</label>
+
+<select onChange={(e)=>chooseDifficulty(e)} name="difficulty" id="difficulty">
+  <option value="all">All</option>
+  <option value="easy">Easy</option>
+  <option value="medium">Medium</option>
+  <option value="hard">Hard</option>
+</select>
+<label for="numberQuestions">Choose number of questions:</label>
+<select onChange={(e)=>chooseNumberQuestions(e)} name="numberQuestions" id="numberQuestions">
+<option value="none" selected disabled hidden>Select #</option>
+  <option value="1">1</option>
+  <option value="3">3</option>
+  <option value="5">5</option>
+  <option value="10">10</option>
+</select>
 
             <div className="modal-btn-div">
-              <Button className="modal-btn" variant="danger" onClick={()=>setModal(false)}>Start Quiz</Button>
+              <Button className="modal-btn" variant="danger" onClick={resetGame}
+                >Start Quiz</Button>
 </div>
 
 </Modal>
