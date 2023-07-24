@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/mobiletriviaunlimited/static/css/main.b5aadbce.css",
-    "main.js": "/mobiletriviaunlimited/static/js/main.350884f9.js",
+    "main.css": "/mobiletriviaunlimited/static/css/main.fb74a112.css",
+    "main.js": "/mobiletriviaunlimited/static/js/main.0f6b389d.js",
     "static/media/quiz-app-bckgrnd.svg": "/mobiletriviaunlimited/static/media/quiz-app-bckgrnd.f32028e4c3cc78b17a3c570323223565.svg",
     "static/media/game-bckgrnd-mobile.svg": "/mobiletriviaunlimited/static/media/game-bckgrnd-mobile.3d06cb489add0313b4a7.svg",
     "index.html": "/mobiletriviaunlimited/index.html",
-    "main.b5aadbce.css.map": "/mobiletriviaunlimited/static/css/main.b5aadbce.css.map",
-    "main.350884f9.js.map": "/mobiletriviaunlimited/static/js/main.350884f9.js.map"
+    "main.fb74a112.css.map": "/mobiletriviaunlimited/static/css/main.fb74a112.css.map",
+    "main.0f6b389d.js.map": "/mobiletriviaunlimited/static/js/main.0f6b389d.js.map"
   },
   "entrypoints": [
-    "static/css/main.b5aadbce.css",
-    "static/js/main.350884f9.js"
+    "static/css/main.fb74a112.css",
+    "static/js/main.0f6b389d.js"
   ]
 }
