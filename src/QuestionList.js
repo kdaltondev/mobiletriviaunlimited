@@ -110,7 +110,7 @@ function selectAnswer(e, i,questionIndex){
 
             <div className="modal-btn-div">
               <Button className="modal-btn" variant="danger" onClick={resetGame}
-                >Start Quiz</Button>
+                >Start</Button>
 </div>
 
 </Modal>
