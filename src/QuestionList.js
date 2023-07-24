@@ -84,22 +84,27 @@ function selectAnswer(e, i,questionIndex){
         <h1 as="modal-heading">Mobile Trivia Unlimited</h1>
     </Modal.Title>
     </Modal.Header>
+<div className="modal-option-choices">
     <label for="difficulty">Choose difficulty level:</label>
 
 <select onChange={(e)=>chooseDifficulty(e)} name="difficulty" id="difficulty">
+<option value="none" selected disabled hidden>Select</option>
   <option value="all">All</option>
   <option value="easy">Easy</option>
   <option value="medium">Medium</option>
   <option value="hard">Hard</option>
 </select>
+</div>
+<div className="modal-option-choices">
 <label for="numberQuestions">Choose number of questions:</label>
 <select onChange={(e)=>chooseNumberQuestions(e)} name="numberQuestions" id="numberQuestions">
-<option value="none" selected disabled hidden>Select #</option>
+<option value="none" selected disabled hidden>Select</option>
   <option value="1">1</option>
   <option value="3">3</option>
   <option value="5">5</option>
   <option value="10">10</option>
 </select>
+</div>
 
             <div className="modal-btn-div">
               <Button className="modal-btn" variant="danger" onClick={resetGame}
