@@ -118,8 +118,14 @@ li{
     padding-bottom:40px;
     margin-top:30px;
 }
+.modal-all-options{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
 .modal-option-choices{
-    margin-bottom:20px;
+    margin:2.5rem 0;
 }
 .modal-btn{
     background-color:lightblue;

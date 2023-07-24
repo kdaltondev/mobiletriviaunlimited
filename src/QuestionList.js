@@ -84,6 +84,7 @@ function selectAnswer(e, i,questionIndex){
         <h1 as="modal-heading">Mobile Trivia Unlimited</h1>
     </Modal.Title>
     </Modal.Header>
+    <div className="modal-all-options">
 <div className="modal-option-choices">
     <label for="difficulty">Choose difficulty level:</label>
 
@@ -104,6 +105,7 @@ function selectAnswer(e, i,questionIndex){
   <option value="5">5</option>
   <option value="10">10</option>
 </select>
+</div>
 </div>
 
             <div className="modal-btn-div">
