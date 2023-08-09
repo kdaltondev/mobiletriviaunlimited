@@ -51,6 +51,7 @@ const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)));
   function checkAnswers() {
     const prevShowAnswers = showAnswers;
     setShowAnswers(!prevShowAnswers);
+    document.getElementById("checkAnswers").disabled = true;
     console.log(isSelected);
   }
 
@@ -186,7 +187,7 @@ const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)));
           {questionListArray}
 
           <div className="bottom-btns">
-            <button className="checkAnswers" onClick={checkAnswers}>
+            <button className="checkAnswers" id="checkAnswers" onClick={checkAnswers}>
               Check Answers
             </button>
             {showAnswers && (

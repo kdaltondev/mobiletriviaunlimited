@@ -67,6 +67,7 @@ const [showModal, setModal]=useState(true)
       setModal(false)
     }
     console.log(showModal);
+    document.getElementById("checkAnswers").disabled = false;
    }
 
    function chooseDifficulty(e){
