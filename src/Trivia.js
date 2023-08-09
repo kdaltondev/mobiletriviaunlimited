@@ -35,7 +35,7 @@ const [showModal, setModal]=useState(true)
 
 
   useEffect(() => {
-  if(questionNumber>0 && questionDifficulty!=""){
+  if(questionNumber>0 && questionDifficulty!="" && questionCategory!="" ){
     console.log(`I am fetching ${questionNumber} questions`)
     fetch(`https://opentdb.com/api.php?amount=${questionNumber}&type=${questionType}&difficulty=${questionDifficulty}&category=${questionCategory}`)
       .then(response => response.json())

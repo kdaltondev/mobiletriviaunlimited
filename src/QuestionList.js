@@ -99,7 +99,7 @@ const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)));
         </Modal.Header>
         <div className="modal-all-options">
           <div className="modal-option-choices">
-            <label for="category">Choose category:</label>
+            <label for="category">Choose category:  </label>
 
             <select
               onChange={(e) => chooseCategory(e)}
@@ -120,7 +120,7 @@ const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)));
           </div>
 
           <div className="modal-option-choices">
-            <label for="difficulty">Choose difficulty level:</label>
+            <label for="difficulty">Choose difficulty level:  </label>
 
             <select
               onChange={(e) => chooseDifficulty(e)}
@@ -130,14 +130,14 @@ const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)));
               <option value="none" selected disabled hidden>
                 Select
               </option>
-              <option value="all">All</option>
+              <option value="">All</option>
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
             </select>
           </div>
           <div className="modal-option-choices">
-            <label for="numberQuestions">Choose number of questions:</label>
+            <label for="numberQuestions">Choose number of questions:  </label>
             <select
               onChange={(e) => chooseNumberQuestions(e)}
               name="numberQuestions"
@@ -171,7 +171,7 @@ const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)));
               {questionCategory === 11
                 ? "Film"
                 : questionCategory === 12
-                ? "Movies"
+                ? "Music"
                 : questionCategory === 14
                 ? "Television"
                 : questionCategory === 21
