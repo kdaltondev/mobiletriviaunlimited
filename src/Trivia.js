@@ -17,11 +17,12 @@ export default function Trivia() {
   const [numberQuestions, setNumberQuestions]=useState(1)
   /*const [questionDifficulty, setQuestionDifficulty]=useState(undefined)*/
  
-  var questionCategory = 21
+  /*var questionCategory = 21 */
   var questionType = "multiple"
   /*var questionDifficulty="easy"*/
   const [questionDifficulty, setQuestionDifficulty]=useState("")
   const [questionNumber, setQuestionNumber]=useState(0)
+  const [questionCategory,setQuestionCategory]=useState("9")
 const [dynamicData, setDynamicData] = useState([])
 const [playAgain, setPlayAgain]=useState([false])
 const [showAnswers, setShowAnswers] = useState(false)
@@ -36,7 +37,7 @@ const [showModal, setModal]=useState(true)
   useEffect(() => {
   if(questionNumber>0 && questionDifficulty!=""){
     console.log(`I am fetching ${questionNumber} questions`)
-    fetch(`https://opentdb.com/api.php?amount=${questionNumber}&type=${questionType}&difficulty=${questionDifficulty}`)
+    fetch(`https://opentdb.com/api.php?amount=${questionNumber}&type=${questionType}&difficulty=${questionDifficulty}&category=${questionCategory}`)
       .then(response => response.json())
       .then(data => {
         // Map the fetched data to the desired format and randomize the answers
@@ -76,6 +77,14 @@ const [showModal, setModal]=useState(true)
     console.log(`The question difficulty is ${questionDifficulty}`)
    }
 
+   function chooseCategory(e){
+    var newQuestionCategory=Number(e.target.value)
+    if (newQuestionCategory === 11){
+    let category="Film"
+  console.log(`The question category is ${category}.`)}
+setQuestionCategory(newQuestionCategory)   
+}
+
    function chooseNumberQuestions(e){
 var newQuestionNumber=Number(e.target.value)
 console.log(`You want ${newQuestionNumber} questions`)
@@ -86,7 +95,7 @@ setQuestionNumber(newQuestionNumber)
   
     return (
         <>
-        <QuestionList chooseNumberQuestions={chooseNumberQuestions} showModal={showModal} chooseDifficulty={chooseDifficulty} roundNumber={roundNumber} staticData={dynamicData} resetGame={resetGame} isSelected={isSelected} setIsSelected={setIsSelected} showAnswers={showAnswers} setShowAnswers={setShowAnswers}/>
+        <QuestionList questionDifficulty={questionDifficulty} questionCategory={questionCategory} chooseCategory={chooseCategory} chooseNumberQuestions={chooseNumberQuestions} showModal={showModal} chooseDifficulty={chooseDifficulty} roundNumber={roundNumber} staticData={dynamicData} resetGame={resetGame} isSelected={isSelected} setIsSelected={setIsSelected} showAnswers={showAnswers} setShowAnswers={setShowAnswers}/>
         </>
     )
 }   
