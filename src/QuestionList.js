@@ -3,7 +3,8 @@ import { Image, Button, Modal, Jumbotron } from "react-bootstrap";
 import background from "./img/quiz-app-bckgrnd.svg";
 
 export default function QuestionList({
-  questionCategory,
+
+    questionCategory,
   questionDifficulty,
   chooseCategory,
   chooseNumberQuestions,
@@ -51,9 +52,19 @@ const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)));
   function checkAnswers() {
     const prevShowAnswers = showAnswers;
     setShowAnswers(!prevShowAnswers);
-    document.getElementById("checkAnswers").disabled = true;
+  
+        document.getElementById("checkAnswers").disabled = true;
+    
     console.log(isSelected);
   }
+
+  function resetCheckAnswers(){
+ 
+        document.getElementById("checkAnswers").disabled = false;
+   
+  }
+
+
 
   const questionListArray = staticData.map((question, index) => {
     const questionIndex = index;
@@ -89,6 +100,7 @@ const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)));
       </div>
     );
   });
+
 
   return (
     <>
@@ -191,7 +203,9 @@ const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)));
               Check Answers
             </button>
             {showAnswers && (
-              <button className="playAgain" onClick={resetGame}>
+              <button className="playAgain" onClick={event => {
+                resetCheckAnswers();
+              resetGame();}}>
                 Play Again
               </button>
             )}

@@ -35,7 +35,7 @@ const [showModal, setModal]=useState(true)
 
 
   useEffect(() => {
-  if(questionNumber>0 && questionDifficulty!="" && questionCategory!="" ){
+  if(questionNumber>0 && questionDifficulty!=="none" && questionCategory!=="none" ){
     console.log(`I am fetching ${questionNumber} questions`)
     fetch(`https://opentdb.com/api.php?amount=${questionNumber}&type=${questionType}&difficulty=${questionDifficulty}&category=${questionCategory}`)
       .then(response => response.json())
@@ -56,6 +56,8 @@ const [showModal, setModal]=useState(true)
   console.log("Waiting for question number")
 }}, [questionNumber, questionDifficulty, playAgain]);
 
+
+
   function resetGame(){
     setPlayAgain(!playAgain)
     setIsSelected(Array(5).fill(Array(4).fill(false)))
@@ -67,7 +69,6 @@ const [showModal, setModal]=useState(true)
       setModal(false)
     }
     console.log(showModal);
-    document.getElementById("checkAnswers").disabled = false;
    }
 
    function chooseDifficulty(e){
@@ -96,7 +97,7 @@ setQuestionNumber(newQuestionNumber)
   
     return (
         <>
-        <QuestionList questionDifficulty={questionDifficulty} questionCategory={questionCategory} chooseCategory={chooseCategory} chooseNumberQuestions={chooseNumberQuestions} showModal={showModal} chooseDifficulty={chooseDifficulty} roundNumber={roundNumber} staticData={dynamicData} resetGame={resetGame} isSelected={isSelected} setIsSelected={setIsSelected} showAnswers={showAnswers} setShowAnswers={setShowAnswers}/>
+        <QuestionList  questionDifficulty={questionDifficulty} questionCategory={questionCategory} chooseCategory={chooseCategory} chooseNumberQuestions={chooseNumberQuestions} showModal={showModal} chooseDifficulty={chooseDifficulty} roundNumber={roundNumber} staticData={dynamicData} resetGame={resetGame} isSelected={isSelected} setIsSelected={setIsSelected} showAnswers={showAnswers} setShowAnswers={setShowAnswers}/>
         </>
     )
 }   
