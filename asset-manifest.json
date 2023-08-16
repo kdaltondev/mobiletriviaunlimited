@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mobiletriviaunlimited/static/css/main.da08ec77.css",
-    "main.js": "/mobiletriviaunlimited/static/js/main.ee2ef0e7.js",
+    "main.js": "/mobiletriviaunlimited/static/js/main.4446d93e.js",
     "static/media/quiz-app-bckgrnd.svg": "/mobiletriviaunlimited/static/media/quiz-app-bckgrnd.f32028e4c3cc78b17a3c570323223565.svg",
     "static/media/game-bckgrnd-mobile.svg": "/mobiletriviaunlimited/static/media/game-bckgrnd-mobile.3d06cb489add0313b4a7.svg",
     "index.html": "/mobiletriviaunlimited/index.html",
     "main.da08ec77.css.map": "/mobiletriviaunlimited/static/css/main.da08ec77.css.map",
-    "main.ee2ef0e7.js.map": "/mobiletriviaunlimited/static/js/main.ee2ef0e7.js.map"
+    "main.4446d93e.js.map": "/mobiletriviaunlimited/static/js/main.4446d93e.js.map"
   },
   "entrypoints": [
     "static/css/main.da08ec77.css",
-    "static/js/main.ee2ef0e7.js"
+    "static/js/main.4446d93e.js"
   ]
 }
