@@ -108,6 +108,7 @@ const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)));
         <Modal.Header>
           <Modal.Title>
             <h1 as="modal-heading">Mobile Trivia Unlimited</h1>
+            <h2>Powered by the <a href="https:the-trivia-api.com">The Trivia API</a></h2>
           </Modal.Title>
         </Modal.Header>
         <div className="modal-all-options">
@@ -123,12 +124,12 @@ const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)));
                 Select
               </option>
               <option value="">Any</option>
-              <option value="9">General Knowledge</option>
-              <option value="11">Film</option>
-              <option value="12">Music</option>
-              <option value="14">Television</option>
-              <option value="21">Sports</option>
-              <option value="23">History</option>
+              <option value="general_knowledge">General Knowledge</option>
+              <option value="film_and_tv">Film and TV</option>
+              <option value="music">Music</option>
+              <option value="science">Science</option>
+              <option value="sport_and_leisure">Sports</option>
+              <option value="history">History</option>
             </select>
           </div>
 
@@ -180,17 +181,17 @@ const [isSelected, setIsSelected]=useState(Array(5).fill(Array(4).fill(false)));
             <h2>Round {roundNumber}</h2>
             <div className="quiz-title">
             <h2>
-              Category:{" "}
-              {questionCategory === 11
-                ? "Film"
-                : questionCategory === 12
-                ? "Music"
-                : questionCategory === 14
-                ? "Television"
-                : questionCategory === 21
-                ? "Sports"
-                : questionCategory === 23
+              Category: 
+              {questionCategory === "history"
                 ? "History"
+                : questionCategory === "film_and_tv"
+                ? "Film and TV"
+                : questionCategory === "music"
+                ? "Music"
+                : questionCategory === "science"
+                ? "Science"
+                : questionCategory === "sports_and_leisure"
+                ? "Sports and Leisure"
                 : "General Knowledge"}
             </h2>
             <h2>Difficulty: {questionDifficulty}</h2>

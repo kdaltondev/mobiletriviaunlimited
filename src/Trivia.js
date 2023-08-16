@@ -37,19 +37,19 @@ const [showModal, setModal]=useState(true)
   useEffect(() => {
   if(questionNumber>0 && questionDifficulty!=="none" && questionCategory!=="none" ){
     console.log(`I am fetching ${questionNumber} questions`)
-    fetch(`https://opentdb.com/api.php?amount=${questionNumber}&type=${questionType}&difficulty=${questionDifficulty}&category=${questionCategory}`)
+    fetch(`https://the-trivia-api.com/v2/questions?categories=${questionCategory}&limit=${questionNumber}&difficulty=${questionDifficulty}`)
       .then(response => response.json())
       .then(data => {
-        // Map the fetched data to the desired format and randomize the answers
-        const formattedData = data.results.map((item, index) => ({
-          id: index + 1,
-          question: item.question,
-          answers: shuffleArray([...item.incorrect_answers, item.correct_answer]),
-          correctAnswer: item.correct_answer
+        // Map the fetched data to the desired format and randomize the answers https://opentdb.com/api.php?amount=${questionNumber}&type=${questionType}&difficulty=${questionDifficulty}&category=${questionCategory}
+        const formattedData = data.map((item, index) => ({
+          id: item.id, //index + 1,
+          question: item.question.text,
+          answers: shuffleArray([...item.incorrectAnswers, item.correctAnswer]),
+          correctAnswer: item.correctAnswer
         }));
         setDynamicData(formattedData);
         console.log(showModal)
-        console.log(`I fetched ${questionDifficulty} questions`)
+        console.log(`I fetched ${questionDifficulty} questions from this category: ${questionCategory}`)
       })
       .catch(error => console.log(error));
 }else{
@@ -80,10 +80,8 @@ const [showModal, setModal]=useState(true)
    }
 
    function chooseCategory(e){
-    var newQuestionCategory=Number(e.target.value)
-    if (newQuestionCategory === 11){
-    let category="Film"
-  console.log(`The question category is ${category}.`)}
+    var newQuestionCategory=e.target.value
+  console.log(`The question category is ${newQuestionCategory}.`)
 setQuestionCategory(newQuestionCategory)   
 }
 
